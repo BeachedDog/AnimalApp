@@ -1,0 +1,61 @@
+﻿@page "/animal"
+@using AnimalApp.Components.Models
+@using AnimalApp.Components.Services
+@inject AnimalService AnimalService
+
+
+<h3>Animal List</h3>
+
+@if (animals == null)
+{
+	<p><em>Loading...</em></p>
+}
+else
+{
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Animal Class</th>
+				<th>Description</th>
+				<th>Diet</th>
+				<th>Colors</th>
+				<th>Weight (in Kg)</th>
+				<th>Native Location</th>
+				<th>Facts</th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var animal in animals)
+			{
+				<tr>
+					<td>@animal.Name</td>
+					<td>@animal.AnimalClass</td>
+					<td>@animal.Description</td>
+					<td>@animal.Diet</td>
+					<td>@foreach (var color in animal.Colors)
+						{
+							<td>@color, </td>
+						}
+					</td>
+					<td>@animal.Weight</td>
+					<td>@animal.NativeLocation</td>
+					<td>@foreach (var fact in animal.Facts)
+						{
+							<td>@fact.</td>
+						}
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+}
+
+@code {
+	private Animal[]? animals;
+
+	protected override async Task OnInitializedAsync()
+	{
+		animals = await AnimalService.GetAnimalsAsync();
+	}
+}
