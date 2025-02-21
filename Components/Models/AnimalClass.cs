@@ -4,20 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace AnimalApp.Components.Models
 {
     public class AnimalClass
     {
-        private string? _name;
-        public void SetName(string name)
-        {
-            _name = name;
-        }
-        
-        public string? Name
-        {
-            get { return _name; }
-        }
+        public int Id { get; set; }
+        public string? Name { get; set; }
+        public bool IsWarmBlooded { get; set; }
+        public string? MethodOfReproduction { get; set; }
+        public ICollection<Animal> Animals { get; set; } = new List<Animal>();
     }
 }

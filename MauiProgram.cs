@@ -1,4 +1,6 @@
-﻿using AnimalApp.Components.Services;
+﻿using AnimalApp.Components.Data;
+using AnimalApp.Components.Services;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace AnimalApp
@@ -14,9 +16,11 @@ namespace AnimalApp
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 });
-
+            var dbPath = Path.Combine(FileSystem.AppDataDirectory, "AnimalApp.db");
             
             builder.Services.AddMauiBlazorWebView();
+            builder.Services.AddDbContext<AnimalAppContext>(options =>
+            options.UseSqlite($"Filename={dbPath}"));
 
 #if DEBUG
             builder.Services.AddBlazorWebViewDeveloperTools();
@@ -28,6 +32,9 @@ namespace AnimalApp
         }
     }
 }
+
+//computer crashed. need to readd in Dbcontext and add it to scope, create Irepository,
+//correctly seed databases for class and for animals. some data recovered below. 
 
 
 //I have made a test database with 5 animals and got it to display to a component. #2 Next I would like to create a real database,
