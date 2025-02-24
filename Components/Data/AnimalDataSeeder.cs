@@ -26,20 +26,22 @@ namespace AnimalApp.Components.Data
             new AnimalClass { Name = "Bird", IsWarmBlooded = true, MethodOfReproduction = "Egg" },
             new AnimalClass { Name = "Reptile", IsWarmBlooded = false, MethodOfReproduction = "Egg" },
             new AnimalClass { Name = "Amphibian", IsWarmBlooded = false, MethodOfReproduction = "Egg" },
-            new AnimalClass { Name = "Insect", IsWarmBlooded = false, MethodOfReproduction = "Egg" }
+            new AnimalClass { Name = "Insect", IsWarmBlooded = false, MethodOfReproduction = "Egg" },
+            new AnimalClass { Name = "Fish", IsWarmBlooded = false, MethodOfReproduction = "Egg" }
         });
 
                 _db.SaveChanges(); // Persist changes to database
             }
         }
 
-        public void SeedAnimaldata()
+        public void SeedAnimalData()
         {
             var mammalClass = _db.AnimalClasses.FirstOrDefault(c => c.Name == "Mammal");
             var birdClass = _db.AnimalClasses.FirstOrDefault(c => c.Name == "Bird");
             var reptileClass = _db.AnimalClasses.FirstOrDefault(c => c.Name == "Reptile");
             var amphibianClass = _db.AnimalClasses.FirstOrDefault(c => c.Name == "Amphibian");
             var insectClass = _db.AnimalClasses.FirstOrDefault(c => c.Name == "Insect");
+            var fishClass = _db.AnimalClasses.FirstOrDefault(c => c.Name == "Fish");
 
             if (!_db.Animals.Any())
             {
@@ -944,50 +946,666 @@ namespace AnimalApp.Components.Data
                             "Conservation efforts are underway to protect and rehabilitate the species through captive breeding programs."
                         }
                     },
-                    new Animal { Name = "Opossum, Virginia" },
-                    new Animal { Name = "Orangutan" },
-                    new Animal { Name = "Owl, Barn" },
-                    new Animal { Name = "Owl, Great Horned" },
-                    new Animal { Name = "Panda, Red" },
-                    new Animal { Name = "Pelican, Dalmatian" },
-                    new Animal { Name = "Penguin, African" },
-                    new Animal { Name = "Penguin, Little" },
-                    new Animal { Name = "Pigeon, Green-naped Pheasant" },
-                    new Animal { Name = "Pigeon, Nicobar" },
-                    new Animal { Name = "Pigeon, Pied Imperial" },
-                    new Animal { Name = "Pigeon, Victoria Crowned" },
-                    new Animal { Name = "Piranha, Black" },
-                    new Animal { Name = "Puma" },
-                    new Animal { Name = "Python, Ball" },
-                    new Animal { Name = "Python, Reticulated" },
-                    new Animal { Name = "Rabbit, Domestic" },
-                    new Animal { Name = "Rattlesmake, Timber" },
-                    new Animal { Name = "Rhinoceros, Southern White" },
-                    new Animal { Name = "Sea Lion" },
-                    new Animal { Name = "Seal, Gray" },
-                    new Animal { Name = "Seal, Harbor" },
-                    new Animal { Name = "Siamang" },
-                    new Animal { Name = "Snake, Easter Indigo" },
-                    new Animal { Name = "Snow Leopard" },
-                    new Animal { Name = "Starling, Golden-breasted" },
-                    new Animal { Name = "Stork, Oriental" },
-                    new Animal { Name = "Stork, White" },
-                    new Animal { Name = "Tanager, Blue-gray" },
-                    new Animal { Name = "Tapir, Malayan" },
-                    new Animal { Name = "Tarantula, New World" },
-                    new Animal { Name = "Tawny Frogmouth" },
-                    new Animal { Name = "Tiger, Amur" },
-                    new Animal { Name = "Tiger, Sumartran" },
-                    new Animal { Name = "Tortoise, Aldabra" },
-                    new Animal { Name = "Tortoise, Greek" },
-                    new Animal { Name = "Toroise, Star" },
-                    new Animal { Name = "Toucan, Toco" },
-                    new Animal { Name = "Turtle, Razor-Backed Musk" },
-                    new Animal { Name = "Vulture, Ruppell's Griffon" },
-                    new Animal { Name = "Vulture, Turkey" },
-                    new Animal { Name = "Wallaby, Bennett's" },
-                    new Animal { Name = "Warthog" },
-                    new Animal { Name = "Zebra, Hartmann's Mountain" }
+                    new Animal
+                    {
+                        Name = "Opossum, Virginia",
+                        AnimalClass = mammalClass,
+                        Description = "The Virginia opossum is North America's only marsupial, known for its ability to play dead as a defense mechanism.",
+                        Diet = "Omnivore, feeding on fruits, insects, small animals, and carrion.",
+                        Colors = new List<string> { "Gray", "White", "Black" },
+                        Weight = 2.5,
+                        NativeLocation = "North America, found in forests, wetlands, and urban areas.",
+                        Facts = new List<string>
+                        {
+                            "Virginia opossums have a prehensile tail that helps them climb trees.",
+                            "They have a high immunity to snake venom and rarely contract rabies due to a lower body temperature."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Orangutan",
+                        AnimalClass = mammalClass,
+                        Description = "Orangutans are large, tree-dwelling great apes native to the rainforests of Borneo and Sumatra, known for their intelligence and long, powerful arms.",
+                        Diet = "Omnivore, primarily feeding on fruits, leaves, bark, and occasionally insects and bird eggs.",
+                        Colors = new List<string> { "Reddish-orange", "Brown" },
+                        Weight = 75,
+                        NativeLocation = "Rainforests of Borneo and Sumatra in Southeast Asia.",
+                        Facts = new List<string>
+                        {
+                            "Orangutans share about 97% of their DNA with humans and are highly intelligent, using tools to obtain food.",
+                            "They are critically endangered due to habitat destruction, poaching, and the illegal pet trade."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Owl, Barn",
+                        AnimalClass = birdClass,
+                        Description = "The barn owl is a nocturnal bird of prey known for its heart-shaped face, silent flight, and exceptional hunting skills.",
+                        Diet = "Carnivore, primarily feeding on small mammals such as mice, voles, and shrews.",
+                        Colors = new List<string> { "White", "Golden-brown", "Gray" },
+                        Weight = 0.5,
+                        NativeLocation = "Found worldwide, including North and South America, Europe, Africa, Asia, and Australia.",
+                        Facts = new List<string>
+                        {
+                            "Barn owls have incredible hearing, allowing them to locate prey even in complete darkness.",
+                            "They are one of the most widely distributed owl species in the world."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Owl, Great Horned",
+                        AnimalClass = birdClass,
+                        Description = "The great horned owl is a powerful and adaptable bird of prey known for its distinctive ear tufts and deep hooting call.",
+                        Diet = "Carnivore, feeding on a wide range of prey including mammals, birds, reptiles, and amphibians.",
+                        Colors = new List<string> { "Brown", "Gray", "White", "Black" },
+                        Weight = 1.4,
+                        NativeLocation = "Found throughout North and South America in a variety of habitats including forests, deserts, and urban areas.",
+                        Facts = new List<string>
+                        {
+                            "Great horned owls have a powerful grip, capable of exerting 300 pounds of pressure per square inch.",
+                            "They are known for their ability to take down prey larger than themselves, including other raptors."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Panda, Red",
+                        AnimalClass = mammalClass,
+                        Description = "The red panda is a small arboreal mammal native to the Eastern Himalayas and southwestern China, known for its reddish-brown fur and bushy tail.",
+                        Diet = "Omnivore, primarily feeding on bamboo, fruits, berries, and small mammals.",
+                        Colors = new List<string> { "Reddish-brown", "Black", "White" },
+                        Weight = 6.2,
+                        NativeLocation = "Eastern Himalayas and southwestern China, in temperate forests with dense bamboo growth.",
+                        Facts = new List<string>
+                        {
+                            "Red pandas use their long, bushy tails for balance and warmth in cold environments.",
+                            "Despite their name, red pandas are not closely related to giant pandas and belong to their own unique family, Ailuridae."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Pelican, Dalmatian",
+                        AnimalClass = birdClass,
+                        Description = "The Dalmatian pelican is one of the largest freshwater birds, known for its massive size, large bill, and distinctive white plumage with a curly nape.",
+                        Diet = "Carnivore, primarily feeding on fish.",
+                        Colors = new List<string> { "White", "Gray", "Orange (bill)" },
+                        Weight = 11.5,
+                        NativeLocation = "Southeastern Europe, Central Asia, and South Asia, typically found in wetlands, lakes, and rivers.",
+                        Facts = new List<string>
+                        {
+                            "Dalmatian pelicans are among the heaviest flying birds, with a wingspan reaching up to 3.5 meters (11.5 feet).",
+                            "They use coordinated group fishing techniques to herd fish into shallow waters for easier capture."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Penguin, African",
+                        AnimalClass = birdClass,
+                        Description = "The African penguin, also known as the jackass penguin, is a species of flightless bird native to the southern coast of Africa, recognized for its distinctive black-and-white plumage and braying call.",
+                        Diet = "Carnivore, primarily feeding on fish, squid, and crustaceans.",
+                        Colors = new List<string> { "Black", "White", "Pink (around eyes)" },
+                        Weight = 3.5,
+                        NativeLocation = "Coastal regions of South Africa and Namibia, often found on rocky islands and sandy beaches.",
+                        Facts = new List<string>
+                        {
+                            "African penguins are the only penguin species that breed in Africa.",
+                            "Their population has declined significantly due to habitat destruction, overfishing, and oil spills, making them an endangered species."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Penguin, Little",
+                        AnimalClass = birdClass,
+                        Description = "The little penguin, also known as the fairy penguin, is the smallest species of penguin, recognized for its petite size and distinctive blue feathers.",
+                        Diet = "Carnivore, mainly feeding on small fish, krill, and other marine invertebrates.",
+                        Colors = new List<string> { "Blue", "White" },
+                        Weight = 1.0,
+                        NativeLocation = "Coastal regions of southern Australia and New Zealand.",
+                        Facts = new List<string>
+                        {
+                            "Little penguins are the smallest of all penguin species, standing only around 30 cm tall.",
+                            "They are known for their nocturnal behavior, often foraging at night and resting during the day."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Pigeon, Green-naped Pheasant",
+                        AnimalClass = birdClass,
+                        Description = "The green-naped pheasant pigeon is a species of pigeon found in the tropical rainforests of New Guinea, known for its striking green nape and large size.",
+                        Diet = "Omnivore, feeding on seeds, fruits, and small invertebrates.",
+                        Colors = new List<string> { "Green", "Blue", "Grey" },
+                        Weight = 0.5,
+                        NativeLocation = "Tropical forests of New Guinea.",
+                        Facts = new List<string>
+                        {
+                            "Green-naped pheasant pigeons are known for their vibrant plumage, especially the iridescent green feathers on their neck.",
+                            "This species is arboreal, spending most of its time in the forest canopy."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Pigeon, Nicobar",
+                        AnimalClass = birdClass,
+                        Description = "The Nicobar pigeon is a large, colorful pigeon found on the Nicobar Islands, known for its striking iridescent plumage and long, flowing tail feathers.",
+                        Diet = "Omnivore, feeding on seeds, fruits, and leaves.",
+                        Colors = new List<string> { "Green", "Blue", "Grey", "Purple" },
+                        Weight = 0.4,
+                        NativeLocation = "Nicobar Islands in the Indian Ocean.",
+                        Facts = new List<string>
+                        {
+                            "The Nicobar pigeon is closely related to the extinct dodo, with similar features.",
+                            "It has a unique call that sounds like a low whistle and is often heard in the dense forests it inhabits."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Pigeon, Pied Imperial",
+                        AnimalClass = birdClass,
+                        Description = "The Pied Imperial pigeon is a large, striking pigeon with a white body and contrasting black wings, native to the tropical forests of the Philippines.",
+                        Diet = "Primarily frugivorous, feeding on a variety of fruits and seeds.",
+                        Colors = new List<string> { "White", "Black" },
+                        Weight = 0.5,
+                        NativeLocation = "Philippine Islands, particularly in dense forested areas.",
+                        Facts = new List<string>
+                        {
+                            "The Pied Imperial pigeon is known for its large size and distinctive pied coloring.",
+                            "It is threatened by habitat loss and hunting, with conservation efforts focusing on protecting its natural habitat."
+                        }
+                     },
+                    new Animal
+                    {
+                        Name = "Pigeon, Victoria Crowned",
+                        AnimalClass = birdClass,
+                        Description = "The Victoria crowned pigeon is a large, striking pigeon with a distinctive blue crown and elaborate feathers, native to New Guinea.",
+                        Diet = "Primarily frugivorous, feeding on fruits, seeds, and occasionally invertebrates.",
+                        Colors = new List<string> { "Blue", "White", "Black" },
+                        Weight = 1.2,
+                        NativeLocation = "New Guinea, particularly in lowland rainforests.",
+                        Facts = new List<string>
+                        {
+                            "The Victoria crowned pigeon is one of the largest and most beautiful pigeons in the world.",
+                            "It is known for its elaborate, lace-like crest of feathers on top of its head."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Piranha, Black",
+                        AnimalClass = fishClass,
+                        Description = "The black piranha is a species of piranha known for its powerful bite and distinctive black coloration, native to the rivers of South America.",
+                        Diet = "Carnivorous, feeding on fish, invertebrates, and occasionally small mammals and birds.",
+                        Colors = new List<string> { "Black", "Gray" },
+                        Weight = 1.5,
+                        NativeLocation = "Rivers of the Amazon Basin, South America.",
+                        Facts = new List<string>
+                        {
+                            "Black piranhas are among the largest and most aggressive members of the piranha family.",
+                            "Despite their fearsome reputation, they typically feed on smaller prey and scavenge."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Puma",
+                        AnimalClass = mammalClass,
+                        Description = "The puma, also known as the cougar or mountain lion, is a large cat native to the Americas, known for its agility and stealth.",
+                        Diet = "Carnivorous, primarily hunting deer, rabbits, and other small mammals.",
+                        Colors = new List<string> { "Tan", "Gray", "Light Brown" },
+                        Weight = 60,
+                        NativeLocation = "North and South America, from Canada to Argentina.",
+                        Facts = new List<string>
+                        {
+                            "Pumas are solitary animals and are known for their ability to adapt to various environments.",
+                            "They have one of the largest ranges of any wild terrestrial mammal in the Americas."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Python, Ball",
+                        AnimalClass = reptileClass,
+                        Description = "The ball python, also known as the royal python, is a non-venomous snake native to West and Central Africa, known for its docile nature and unique ability to curl into a tight ball.",
+                        Diet = "Carnivorous, primarily feeding on rodents and other small mammals.",
+                        Colors = new List<string> { "Black", "Brown", "Yellow" },
+                        Weight = 1.5,
+                        NativeLocation = "West and Central Africa, including countries such as Ghana, Togo, and Benin.",
+                        Facts = new List<string>
+                        {
+                            "Ball pythons are known for their ability to 'ball up' when threatened, protecting their head inside the coil.",
+                            "They are a popular pet due to their calm temperament and manageable size."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Python, Reticulated",
+                        AnimalClass = reptileClass,
+                        Description = "The reticulated python is one of the longest and heaviest snake species in the world, known for its intricate and beautiful pattern of scales.",
+                        Diet = "Carnivorous, primarily feeding on birds, mammals, and reptiles.",
+                        Colors = new List<string> { "Yellow", "Black", "White" },
+                        Weight = 160,
+                        NativeLocation = "Southeast Asia, including Indonesia, the Philippines, and parts of Malaysia.",
+                        Facts = new List<string>
+                        {
+                            "The reticulated python can grow to lengths of over 30 feet, making it one of the longest snakes in the world.",
+                            "Despite their size, they are relatively reclusive and are known to be excellent swimmers."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Rabbit, Domestic",
+                        AnimalClass = mammalClass,
+                        Description = "The domestic rabbit is a small mammal commonly kept as a pet, known for its gentle temperament and variety of breeds.",
+                        Diet = "Herbivore, feeding primarily on hay, vegetables, and fruits.",
+                        Colors = new List<string> { "White", "Brown", "Black", "Grey" },
+                        Weight = 2,
+                        NativeLocation = "Domesticated worldwide.",
+                        Facts = new List<string>
+                        {
+                            "Rabbits have a strong tendency to dig and burrow, which is an instinctual behavior inherited from wild ancestors.",
+                            "They can communicate through body language, such as thumping their hind legs to warn of danger."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Rattlesnake, Timber",
+                        AnimalClass = reptileClass,
+                        Description = "The timber rattlesnake is a venomous pit viper found in the eastern United States, known for its distinctive rattle and warning sound.",
+                        Diet = "Carnivore, primarily feeding on small mammals, birds, and amphibians.",
+                        Colors = new List<string> { "Brown", "Gray", "Yellow", "Black" },
+                        Weight = 2.5,
+                        NativeLocation = "Eastern United States, particularly in forested areas.",
+                        Facts = new List<string>
+                        {
+                            "Timber rattlesnakes are one of the largest venomous snakes in the U.S.",
+                            "They use their rattle as a warning to potential predators or threats."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Rhinoceros, Southern White",
+                        AnimalClass = mammalClass,
+                        Description = "The Southern white rhinoceros is one of the largest species of rhino, known for its broad square lips and large size.",
+                        Diet = "Herbivore, grazing on grass and other vegetation.",
+                        Colors = new List<string> { "Gray", "Light gray" },
+                        Weight = 1800,
+                        NativeLocation = "Southern Africa, particularly in South Africa, Namibia, Zimbabwe, and Kenya.",
+                        Facts = new List<string>
+                        {
+                            "The Southern white rhino is the most abundant species of rhinoceros in the world.",
+                            "Conservation efforts have led to a significant recovery in population from near extinction."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Sea Lion",
+                        AnimalClass = mammalClass,
+                        Description = "Sea lions are large marine mammals known for their intelligence and playful nature, often seen in coastal regions.",
+                        Diet = "Carnivore, feeding on fish, squid, and other marine animals.",
+                        Colors = new List<string> { "Brown", "Dark brown" },
+                        Weight = 300,
+                        NativeLocation = "Coastal regions of the Pacific Ocean, primarily along the coasts of North America and South America.",
+                        Facts = new List<string>
+                        {
+                            "Sea lions are highly social animals, living in large colonies.",
+                            "They are excellent swimmers and can dive to great depths in search of food."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Seal, Gray",
+                        AnimalClass = mammalClass,
+                        Description = "The gray seal is a large pinniped species known for its robust build and distinctive coat pattern.",
+                        Diet = "Carnivore, primarily feeding on fish, squid, and crustaceans.",
+                        Colors = new List<string> { "Gray", "Silver" },
+                        Weight = 150,   
+                        NativeLocation = "Coastal regions of the North Atlantic Ocean, particularly in the northern parts of Europe and North America.",
+                        Facts = new List<string>
+                        {
+                            "Gray seals are known for their playful behavior and inquisitive nature.",
+                            "They are one of the most widespread seal species, found in both European and North American waters."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Seal, Harbor",
+                        AnimalClass = mammalClass,
+                        Description = "The harbor seal is a common species of seal found along coastlines in temperate regions. It has a rounded face and a spotted or striped coat.",
+                        Diet = "Carnivore, feeding on fish, mollusks, and crustaceans.",
+                        Colors = new List<string> { "Gray", "Brown", "Spotted" },
+                        Weight = 80,
+                        NativeLocation = "Coastal areas of the North Atlantic and North Pacific Oceans, including both Europe and North America.",
+                        Facts = new List<string>
+                        {
+                            "Harbor seals are highly adaptable and can be found in a variety of coastal habitats, from rocky shores to sandy beaches.",
+                            "They are often seen hauled out on land or ice floes to rest and sunbathe."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Siamang",
+                        AnimalClass = mammalClass,
+                        Description = "The siamang is a large gibbon native to the rainforests of Southeast Asia. It is known for its vocalizations and large throat sac, which it uses to amplify its calls.",
+                        Diet = "Omnivore, feeding on fruits, leaves, flowers, and small animals.",
+                        Colors = new List<string> { "Black" },
+                        Weight = 14,
+                        NativeLocation = "Rainforests of Malaysia, Indonesia, and southern Thailand.",
+                        Facts = new List<string>
+                        {
+                            "Siamangs are the largest of the gibbons and are known for their impressive vocal abilities, often singing in duets with their mates.",
+                            "They are arboreal, spending most of their time in trees and moving with a method known as brachiation (swinging from branch to branch)."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Snake, Eastern Indigo",
+                        AnimalClass = reptileClass,
+                        Description = "The Eastern Indigo snake is a large, non-venomous snake native to the southeastern United States. It is known for its shiny, blue-black coloration and its ability to control populations of small mammals and other reptiles.",
+                        Diet = "Carnivore, primarily feeds on small mammals, birds, eggs, and other reptiles.",
+                        Colors = new List<string> { "Blue-black", "Shiny" },
+                        Weight = 4.5,
+                        NativeLocation = "Southeastern United States, including parts of Florida, Georgia, and Alabama.",
+                        Facts = new List<string>
+                        {
+                            "The Eastern Indigo snake is the longest native snake in the United States, capable of reaching lengths up to 2.5 meters.",
+                            "This species is protected due to habitat loss and is listed as threatened in some parts of its range."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Snow Leopard",
+                        AnimalClass = mammalClass,
+                        Description = "The snow leopard is a large cat native to the mountain ranges of Central and South Asia. It is well adapted to cold, high-altitude environments with its thick fur and long tail.",
+                        Diet = "Carnivore, primarily preys on wild sheep, goats, and smaller mammals.",
+                        Colors = new List<string> { "Gray", "White", "Black spots" },
+                        Weight = 35,
+                        NativeLocation = "Mountain ranges of Central and South Asia, including the Himalayas and Tibetan Plateau.",
+                        Facts = new List<string>
+                        {
+                            "Snow leopards are known for their ability to navigate difficult mountainous terrain, aided by their strong limbs and long tail for balance.",
+                            "They are elusive and solitary animals, making them difficult to study in the wild."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Starling, Golden-breasted",
+                        AnimalClass = birdClass,
+                        Description = "The golden-breasted starling is a vibrant, medium-sized bird native to East Africa, known for its striking golden-yellow plumage and iridescent green wings.",
+                        Diet = "Omnivore, feeding on fruits, insects, and seeds.",
+                        Colors = new List<string> { "Golden", "Green", "Black" },
+                        Weight = 0.1,
+                        NativeLocation = "East Africa, particularly in savannahs and woodlands.",
+                        Facts = new List<string>
+                        {
+                            "The golden-breasted starling is known for its beautiful, colorful plumage and social behavior.",
+                            "They are often seen in small groups and are highly vocal, emitting a variety of calls."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Stork, Oriental",
+                        AnimalClass = birdClass,
+                        Description = "The oriental stork is a large, migratory bird native to Eastern Asia, recognized for its white body, black wings, and long red legs and bill.",
+                        Diet = "Carnivore, feeding on fish, amphibians, and small mammals.",
+                        Colors = new List<string> { "White", "Black", "Red" },
+                        Weight = 4.5,
+                        NativeLocation = "Eastern Asia, particularly in China, Korea, and Japan.",
+                        Facts = new List<string>
+                        {
+                            "The oriental stork migrates from its breeding grounds in northeastern Asia to warmer areas in Southeast Asia during the winter.",
+                            "It is considered a symbol of good luck and prosperity in some Asian cultures."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Stork, White",
+                        AnimalClass = birdClass,
+                        Description = "The white stork is a large bird commonly found in Europe, Asia, and parts of Africa, known for its long legs, long neck, and striking white and black plumage.",
+                        Diet = "Carnivore, primarily feeding on insects, frogs, small rodents, and fish.",
+                        Colors = new List<string> { "White", "Black" },
+                        Weight = 4,
+                        NativeLocation = "Europe, Asia, and parts of Africa.",
+                        Facts = new List<string>
+                        {
+                            "The white stork is a migratory species, traveling long distances between Europe and Africa.",
+                            "In many cultures, the white stork is associated with bringing babies and good luck."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Tanager, Blue-gray",
+                        AnimalClass = birdClass,
+                        Description = "The blue-gray tanager is a small songbird found in Central and South America, known for its striking blue and gray plumage.",
+                        Diet = "Omnivore, feeding on fruits, berries, and insects.",
+                        Colors = new List<string> { "Blue", "Gray" },
+                        Weight = 0.03,
+                        NativeLocation = "Central and South America, particularly in the rainforests.",
+                        Facts = new List<string>
+                        {
+                            "Blue-gray tanagers are commonly found in forested areas and are known for their energetic and playful behavior.",
+                            "They are often seen in pairs or small groups, hopping among the branches in search of food."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Tapir, Malayan",
+                        AnimalClass = mammalClass,
+                        Description = "The Malayan tapir is a large herbivorous mammal native to the Malay Peninsula and parts of Thailand and Sumatra. It is known for its distinct black and white coloration.",
+                        Diet = "Herbivore, primarily feeding on leaves, fruits, and other vegetation.",
+                        Colors = new List<string> { "Black", "White" },
+                        Weight = 300,
+                        NativeLocation = "Malay Peninsula, parts of Thailand, and Sumatra.",
+                        Facts = new List<string>
+                        {
+                            "Malayan tapirs are excellent swimmers and often use rivers to travel between areas of dense forest.",
+                            "The species is endangered due to habitat loss and poaching."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Tarantula, New World",
+                        AnimalClass = insectClass,
+                        Description = "The New World tarantulas are a group of tarantulas found in the Americas, known for their larger size and more docile temperament compared to Old World species. They often have striking color patterns and are popular in the pet trade.",
+                        Diet = "Carnivore, feeding primarily on insects, small mammals, and birds.",
+                        Colors = new List<string> { "Brown", "Black", "Red" },
+                        Weight = 0.05,
+                        NativeLocation = "North, Central, and South America.",
+                        Facts = new List<string>
+                        {
+                            "New World tarantulas have urticating hairs on their abdomen, which they can flick to defend themselves.",
+                            "Despite their intimidating appearance, they are generally not aggressive towards humans."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Tawny Frogmouth",
+                        AnimalClass = birdClass,
+                        Description = "The Tawny Frogmouth is a nocturnal bird native to Australia, known for its wide, frog-like mouth and excellent camouflage. It often remains motionless during the day, blending into tree branches.",
+                        Diet = "Carnivore, primarily feeding on insects, small vertebrates, and invertebrates.",
+                        Colors = new List<string> { "Gray", "Brown", "White" },
+                        Weight = 0.4,
+                        NativeLocation = "Australia, particularly in forested and woodland areas.",
+                        Facts = new List<string>
+                        {
+                            "The Tawny Frogmouth is known for its unique hunting technique of silently swooping down on prey during the night.",
+                            "Despite their resemblance to owls, Tawny Frogmouths are actually more closely related to nightjars."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Tiger, Amur",
+                        AnimalClass = mammalClass,
+                        Description = "The Amur tiger, also known as the Siberian tiger, is the largest wildcat in the world, found primarily in the Russian Far East. It is critically endangered, with only a small number of individuals left in the wild.",
+                        Diet = "Carnivore, primarily feeding on large prey such as deer, wild boar, and occasionally smaller animals.",
+                        Colors = new List<string> { "Orange", "Black", "White" },
+                        Weight = 200,
+                        NativeLocation = "Russian Far East, northeastern China.",
+                        Facts = new List<string>
+                        {
+                            "Amur tigers are solitary and territorial, with home ranges that can span hundreds of square kilometers.",
+                            "Conservation efforts have helped stabilize the population of Amur tigers, but they remain critically endangered due to poaching and habitat loss."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Tiger, Sumatran",
+                        AnimalClass = mammalClass,
+                        Description = "The Sumatran tiger is a critically endangered subspecies of tiger found exclusively on the Indonesian island of Sumatra. It is smaller than other tiger subspecies, but it is still a powerful predator.",
+                        Diet = "Carnivore, feeding on deer, wild boar, and other small mammals.",
+                        Colors = new List<string> { "Orange", "Black", "White" },
+                        Weight = 100,
+                        NativeLocation = "Sumatra, Indonesia.",
+                        Facts = new List<string>
+                        {
+                            "Sumatran tigers are solitary animals, and their population is scattered across the dense forests of Sumatra.",
+                            "Habitat destruction, poaching, and human-wildlife conflict have led to a dramatic decline in the population of Sumatran tigers."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Tortoise, Aldabra",
+                        AnimalClass = reptileClass,
+                        Description = "The Aldabra giant tortoise is one of the largest tortoises in the world, native to the Aldabra Atoll in the Seychelles. They are long-lived creatures and can live over 100 years.",
+                        Diet = "Herbivore, primarily feeds on grasses, leaves, and fruits.",
+                        Colors = new List<string> { "Gray", "Green" },
+                        Weight = 250,
+                        NativeLocation = "Aldabra Atoll, Seychelles.",
+                        Facts = new List<string>
+                        {
+                            "Aldabra giant tortoises are known for their immense size and slow movements, with some individuals weighing over 250 kg.",
+                            "The species is endangered due to habitat loss and hunting, though conservation efforts are in place to protect them."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Tortoise, Greek",
+                        AnimalClass = reptileClass,
+                        Description = "The Greek tortoise is a small, terrestrial tortoise native to parts of southern Europe and the Middle East. It is characterized by its high-domed shell and distinct patterns.",
+                        Diet = "Herbivore, primarily feeds on grasses, leaves, and fruits.",
+                        Colors = new List<string> { "Yellow", "Brown" },
+                        Weight = 1.5,
+                        NativeLocation = "Southern Europe, Middle East.",
+                        Facts = new List<string>
+                        {
+                            "Greek tortoises are often kept as pets due to their manageable size and docile nature.",
+                            "They are a threatened species in the wild, primarily due to habitat destruction and illegal pet trade."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Tortoise, Star",
+                        AnimalClass = reptileClass,
+                        Description = "The star tortoise is a large species of tortoise found in India and Sri Lanka, known for its distinctive star-like patterns on its domed shell.",
+                        Diet = "Herbivore, feeds on grasses, fruits, and cactus.",
+                        Colors = new List<string> { "Yellow", "Black" },
+                        Weight = 5.0,
+                        NativeLocation = "India, Sri Lanka.",
+                        Facts = new List<string>
+                        {
+                            "The star patterns on the tortoise's shell are unique to each individual, much like fingerprints in humans.",
+                            "Star tortoises are threatened by habitat loss and the pet trade."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Toucan, Toco",
+                        AnimalClass = birdClass,
+                        Description = "The toco toucan is a large species of toucan native to South America, recognized for its large, colorful bill and striking black and white plumage.",
+                        Diet = "Omnivore, feeds on fruits, insects, and small reptiles.",
+                        Colors = new List<string> { "Black", "White", "Orange", "Yellow" },
+                        Weight = 0.7,
+                        NativeLocation = "South America, primarily in Brazil, Argentina, and Paraguay.",
+                        Facts = new List<string>
+                        {
+                            "The toco toucan's bill, despite its large size, is lightweight due to its hollow structure.",
+                            "Toco toucans are social birds, often seen in pairs or small groups."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Turtle, Razor-Backed Musk",
+                        AnimalClass = reptileClass,
+                        Description = "The razor-backed musk turtle is a small, freshwater turtle found in North America, known for its distinctively pointed, spiked carapace.",
+                        Diet = "Carnivorous, feeding on aquatic invertebrates, small fish, and plants.",
+                        Colors = new List<string> { "Brown", "Black", "Yellow" },
+                        Weight = 0.5,
+                        NativeLocation = "Southern United States, particularly in the Mississippi River Basin.",
+                        Facts = new List<string>
+                        {
+                            "The razor-backed musk turtle is named for the sharp, ridge-like keel on its carapace.",
+                            "It has a strong odor, which is why it’s called a musk turtle."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Vulture, Ruppell's Griffon",
+                        AnimalClass = birdClass,
+                        Description = "Rüppell's griffon vulture is a large bird of prey found in parts of Africa, known for its impressive wingspan and scavenging habits.",
+                        Diet = "Carnivorous, primarily feeding on carcasses of large animals.",
+                        Colors = new List<string> { "Brown", "White", "Black" },
+                        Weight = 7.5,
+                        NativeLocation = "Sub-Saharan Africa, especially in the Sahel region.",
+                        Facts = new List<string>
+                        {
+                            "Rüppell's griffon vulture has the highest known bird flight altitude, having been recorded at over 37,000 feet.",
+                            "It plays a vital role in the ecosystem by cleaning up carrion and preventing the spread of disease."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Vulture, Turkey",
+                        AnimalClass = birdClass,
+                        Description = "The turkey vulture is a large bird of prey native to the Americas, recognized by its red head and dark plumage. It is a scavenger, feeding primarily on carrion.",
+                        Diet = "Carnivorous, feeding primarily on decaying carcasses.",
+                        Colors = new List<string> { "Black", "Brown", "Red" },
+                        Weight = 2.0,
+                        NativeLocation = "North and South America, especially in open fields and forests.",
+                        Facts = new List<string>
+                        {
+                            "Turkey vultures have an incredible sense of smell, which helps them locate food from great distances.",
+                            "They have a unique method of cooling down by defecating on their legs, which helps them regulate their body temperature."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Vulture, Turkey",
+                        AnimalClass = birdClass,
+                        Description = "The turkey vulture is a large bird of prey native to the Americas, recognized by its red head and dark plumage. It is a scavenger, feeding primarily on carrion.",
+                        Diet = "Carnivorous, feeding primarily on decaying carcasses.",
+                        Colors = new List<string> { "Black", "Brown", "Red" },
+                        Weight = 2.0,
+                        NativeLocation = "North and South America, especially in open fields and forests.",
+                        Facts = new List<string>
+                        {
+                            "Turkey vultures have an incredible sense of smell, which helps them locate food from great distances.",
+                            "They have a unique method of cooling down by defecating on their legs, which helps them regulate their body temperature."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Warthog",
+                        AnimalClass = mammalClass,
+                        Description = "The warthog is a wild member of the pig family native to sub-Saharan Africa. It is known for its tusks and distinctive facial warts.",
+                        Diet = "Omnivore, feeding on grass, roots, fruits, and occasionally small animals or carrion.",
+                        Colors = new List<string> { "Gray", "Brown" },
+                        Weight = 90.0,
+                        NativeLocation = "Sub-Saharan Africa, primarily in savannas and grasslands.",
+                        Facts = new List<string>
+                        {
+                            "Warthogs use their tusks to defend themselves against predators and compete for mates.",
+                            "Despite their fierce appearance, warthogs are relatively peaceful and often graze in groups."
+                        }
+                    },
+                    new Animal
+                    {
+                        Name = "Zebra, Hartmann's Mountain",
+                        AnimalClass = mammalClass,
+                        Description = "Hartmann's mountain zebra is a subspecies of zebra found in the mountainous regions of Namibia and Angola, characterized by narrow stripes and a more rugged body.",
+                        Diet = "Herbivore, primarily feeding on grasses, shrubs, and leaves.",
+                        Colors = new List<string> { "White", "Black" },
+                        Weight = 350.0,
+                        NativeLocation = "Mountainous areas of Namibia and Angola.",
+                        Facts = new List<string>
+                        {
+                            "Hartmann's mountain zebra is adapted to the rugged terrain of the mountains and has specialized hooves for climbing.",
+                            "The species is considered vulnerable due to habitat loss and hunting."
+                        }
+                    }
                 });
             }
         }

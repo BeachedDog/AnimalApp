@@ -56,6 +56,7 @@ else
 
 	protected override async Task OnInitializedAsync()
 	{
-		animals = await AnimalService.GetAnimalsAsync();
+		animals = await AnimalService.GetAnimalsAsync(AnimalDataSeeder
+);
 	}
 }
