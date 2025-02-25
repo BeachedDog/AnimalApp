@@ -21,10 +21,15 @@ namespace AnimalApp
             builder.Services.AddMauiBlazorWebView();
             builder.Services.AddDbContext<AnimalAppContext>(options =>
             options.UseSqlite($"Filename={dbPath}"));
-
+            using (var scope = builder.Services.BuildServiceProvider().CreateScope())
+            {
+                var context = scope.ServiceProvider.GetRequiredService<AnimalAppContext>();
+                DataBaseInitializer.Initialize(context);
+            }
 #if DEBUG
             builder.Services.AddBlazorWebViewDeveloperTools();
             builder.Logging.AddDebug();
+
 #endif
             builder.Services.AddScoped<WeatherForecastService>();
             builder.Services.AddScoped<AnimalService>();

@@ -7,20 +7,25 @@ using AnimalApp.Components.Models;
 
 namespace AnimalApp.Components.Data
 {
-    public class AnimalDataSeeder
+    public static class DataBaseInitializer
     {
-        private readonly AnimalAppContext _db;
+        
 
-        public AnimalDataSeeder(AnimalAppContext db)
+        public static void Initialize(AnimalAppContext context)
         {
-            _db = db;
+            if (!context.Database.CanConnect())
+            {
+                context.Database.EnsureCreated();
+
+                SeedClassData(context);
+             }
         }
 
-        public void SeedClassData()
+        public static void SeedClassData(AnimalAppContext context)
         {
-            if (!_db.AnimalClasses.Any())
+            if (!context.AnimalClasses.Any())
             {
-                _db.AnimalClasses.AddRange(new List<AnimalClass>
+                context.AnimalClasses.AddRange(new List<AnimalClass>
         {
             new AnimalClass { Name = "Mammal", IsWarmBlooded = true, MethodOfReproduction = "Live Birth" },
             new AnimalClass { Name = "Bird", IsWarmBlooded = true, MethodOfReproduction = "Egg" },
@@ -30,22 +35,22 @@ namespace AnimalApp.Components.Data
             new AnimalClass { Name = "Fish", IsWarmBlooded = false, MethodOfReproduction = "Egg" }
         });
 
-                _db.SaveChanges(); // Persist changes to database
+                context.SaveChanges(); // Persist changes to database
             }
         }
 
-        public void SeedAnimalData()
+        public static void SeedAnimalData(AnimalAppContext context)
         {
-            var mammalClass = _db.AnimalClasses.FirstOrDefault(c => c.Name == "Mammal");
-            var birdClass = _db.AnimalClasses.FirstOrDefault(c => c.Name == "Bird");
-            var reptileClass = _db.AnimalClasses.FirstOrDefault(c => c.Name == "Reptile");
-            var amphibianClass = _db.AnimalClasses.FirstOrDefault(c => c.Name == "Amphibian");
-            var insectClass = _db.AnimalClasses.FirstOrDefault(c => c.Name == "Insect");
-            var fishClass = _db.AnimalClasses.FirstOrDefault(c => c.Name == "Fish");
+            var mammalClass = context.AnimalClasses.FirstOrDefault(c => c.Name == "Mammal");
+            var birdClass = context.AnimalClasses.FirstOrDefault(c => c.Name == "Bird");
+            var reptileClass = context.AnimalClasses.FirstOrDefault(c => c.Name == "Reptile");
+            var amphibianClass = context.AnimalClasses.FirstOrDefault(c => c.Name == "Amphibian");
+            var insectClass = context.AnimalClasses.FirstOrDefault(c => c.Name == "Insect");
+            var fishClass = context.AnimalClasses.FirstOrDefault(c => c.Name == "Fish");
 
-            if (!_db.Animals.Any())
+            if (context.Animals.Any())
             {
-                _db.Animals.AddRange(new List<Animal>
+                context.Animals.AddRange(new List<Animal>
                 {
                     new Animal {
                         Name = "Addax",

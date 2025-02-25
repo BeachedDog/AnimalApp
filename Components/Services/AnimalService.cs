@@ -18,11 +18,8 @@ namespace AnimalApp.Components.Services
 
         public static Animal[] Animals => animals;
 
-        public static Task<Animal[]> GetAnimalsAsync(AnimalDataSeeder animals)
+        public static Task<Animal[]> GetAnimalsAsync()
         {
-            var animalList = animals.SeedAnimalData;
-            var classList = animals.SeedClassData;
-           
             return Task.FromResult(animalList);
         }
     }
