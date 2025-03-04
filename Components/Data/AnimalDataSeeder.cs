@@ -18,6 +18,7 @@ namespace AnimalApp.Components.Data
                 context.Database.EnsureCreated();
 
                 SeedClassData(context);
+                SeedAnimalData(context);
              }
         }
 
@@ -48,11 +49,12 @@ namespace AnimalApp.Components.Data
             var insectClass = context.AnimalClasses.FirstOrDefault(c => c.Name == "Insect");
             var fishClass = context.AnimalClasses.FirstOrDefault(c => c.Name == "Fish");
 
-            if (context.Animals.Any())
+            if (!context.Animals.Any())
             {
                 context.Animals.AddRange(new List<Animal>
                 {
                     new Animal {
+                        Id = 1,
                         Name = "Addax",
                         AnimalClass = mammalClass,
                         Description = "The Addax is a large antelope native to the Sahara Desert. It is well-adapted to living in extreme desert conditions.",
@@ -68,6 +70,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 2,
                         Name = "Alligator, American",
                         AnimalClass = reptileClass,
                         Description = "The American Alligator is a large reptile found primarily in the southeastern United States. It is known for its powerful bite and is an apex predator in its ecosystem.",
@@ -85,6 +88,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 3,
                         Name = "Alligator, Chinese",
                         AnimalClass = reptileClass,
                         Description = "The Chinese Alligator is a small species of alligator found in the Yangtze River basin in China. It is critically endangered due to habitat destruction and hunting.",
@@ -102,6 +106,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 4,
                         Name = "Anaconda",
                         AnimalClass = reptileClass,
                         Description = "Anacondas are large, non-venomous snakes found in South America. They are among the heaviest and longest snakes in the world.",
@@ -120,6 +125,7 @@ namespace AnimalApp.Components.Data
 
                     new Animal
                     {
+                        Id = 5,
                         Name = "Armadillo, Southern Three-Banded",
                         AnimalClass = mammalClass,
                         Description = "The Southern Three-Banded Armadillo is a species of armadillo found in central and southern Brazil, Paraguay, and Argentina. It is known for its ability to roll into a ball for protection.",
@@ -137,6 +143,7 @@ namespace AnimalApp.Components.Data
 
                     new Animal
                     {
+                        Id = 6,
                         Name = "Babirusa",
                         AnimalClass = mammalClass,
                         Description = "The Babirusa is a species of wild pig native to the Indonesian islands of Sulawesi, Togian, and Sula. It is known for its distinctive upward-curving tusks.",
@@ -154,6 +161,7 @@ namespace AnimalApp.Components.Data
 
                     new Animal
                     {
+                        Id = 7,
                         Name = "Bat, Rodrigues Fruit",
                         AnimalClass = mammalClass,
                         Description = "The Rodrigues Fruit Bat, also known as the Rodrigues Flying Fox, is a species of megabat found only on Rodrigues Island in the Indian Ocean. It is known for its large size and fruit-based diet.",
@@ -171,6 +179,7 @@ namespace AnimalApp.Components.Data
 
                     new Animal
                     {
+                        Id = 8,
                         Name = "Bat, Vampire",
                         AnimalClass = mammalClass,
                         Description = "The Vampire Bat is a species of bat native to Central and South America, known for feeding on the blood of mammals and birds.",
@@ -188,6 +197,7 @@ namespace AnimalApp.Components.Data
 
                     new Animal
                     {
+                        Id = 9,
                         Name = "Bear, Brown",
                         AnimalClass = mammalClass,
                         Description = "The Brown Bear is a large bear species found in North America, Europe, and Asia, known for its massive size and omnivorous diet.",
@@ -205,6 +215,7 @@ namespace AnimalApp.Components.Data
 
                     new Animal
                     {
+                        Id = 10,
                         Name = "Bear, Polar",
                         AnimalClass = mammalClass,
                         Description = "The Polar Bear is a large bear species found in the Arctic region, well-adapted to cold environments and primarily feeds on seals.",
@@ -222,6 +233,7 @@ namespace AnimalApp.Components.Data
 
                     new Animal
                     {
+                        Id = 11,
                         Name = "Bearded Dragon",
                         AnimalClass = reptileClass,
                         Description = "The Bearded Dragon is a species of lizard native to Australia, known for its spiny 'beard' under its chin and calm temperament.",
@@ -239,6 +251,7 @@ namespace AnimalApp.Components.Data
 
                     new Animal
                     {
+                        Id = 12,
                         Name = "Bongo",
                         AnimalClass = mammalClass,
                         Description = "The Bongo is a large antelope found in the rainforests of Central and West Africa, characterized by its striking orange-brown coat with white stripes.",
@@ -256,6 +269,7 @@ namespace AnimalApp.Components.Data
 
                     new Animal
                     {
+                        Id = 13,
                         Name = "Camel, Dromedary",
                         AnimalClass = mammalClass,
                         Description = "The Dromedary Camel is a large mammal with one hump, adapted to survive in hot, arid environments like deserts.",
@@ -272,6 +286,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 15,
                         Name = "Cardinal, Red-capped",
                         AnimalClass = birdClass,
                         Description = "The Red-capped Cardinal is a small songbird native to South America, known for its striking red cap and black body.",
@@ -289,6 +304,7 @@ namespace AnimalApp.Components.Data
 
                     new Animal
                     {
+                        Id = 16,
                         Name = "Cardinal, Red-crested",
                         AnimalClass = birdClass,
                         Description = "The Red-crested Cardinal is a colorful bird with a striking red crest and a contrasting black and white body, native to South America.",
@@ -306,6 +322,7 @@ namespace AnimalApp.Components.Data
 
                     new Animal
                     {
+                        Id = 17,
                         Name = "Chameleon, Panther",
                         AnimalClass = reptileClass,
                         Description = "The Panther Chameleon is a species of chameleon found in Madagascar, known for its vibrant colors and the ability to change hue.",
@@ -323,6 +340,7 @@ namespace AnimalApp.Components.Data
 
                     new Animal
                     {
+                        Id = 18,
                         Name = "Chinchilla",
                         AnimalClass = mammalClass,
                         Description = "The Chinchilla is a small, nocturnal rodent known for its incredibly soft fur, native to the Andes mountains of South America.",
@@ -340,6 +358,7 @@ namespace AnimalApp.Components.Data
 
                     new Animal
                     {
+                        Id = 19,
                         Name = "Crane, East African Crowned",
                         AnimalClass = birdClass,
                         Description = "The East African Crowned Crane is a large, elegant bird known for its striking golden crest and vibrant plumage.",
@@ -357,6 +376,7 @@ namespace AnimalApp.Components.Data
 
                     new Animal
                     {
+                        Id = 20,
                         Name = "Crane, Red-Crowned",
                         AnimalClass = birdClass,
                         Description = "The Red-Crowned Crane is a majestic bird with striking white plumage and a red patch on its head, symbolizing longevity and good fortune in East Asia.",
@@ -374,6 +394,7 @@ namespace AnimalApp.Components.Data
 
                     new Animal
                     {
+                        Id = 21,
                         Name = "Crane, Wattled",
                         AnimalClass = birdClass,
                         Description = "The Wattled Crane is a large, striking bird known for the unique wattles hanging from its cheeks and its long legs.",
@@ -391,6 +412,7 @@ namespace AnimalApp.Components.Data
 
                     new Animal
                     {
+                        Id = 22,
                         Name = "Crocodile, Cuban",
                         AnimalClass = reptileClass,
                         Description = "The Cuban Crocodile is a small but aggressive species of crocodile found in Cuba, known for its distinctive yellowish-green color and strong territorial behavior.",
@@ -408,6 +430,7 @@ namespace AnimalApp.Components.Data
 
                     new Animal
                     {
+                        Id = 23,
                         Name = "Dove, Beautiful Fruit",
                         AnimalClass = birdClass,
                         Description = "The Beautiful Fruit Dove is a vibrant, colorful bird native to the tropical forests of Southeast Asia, known for its striking plumage.",
@@ -424,6 +447,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 24,
                         Name = "Dove, Grey-capped Emerald",
                         AnimalClass = birdClass,
                         Description = "The Grey-capped Emerald Dove is a small, colorful bird native to the rainforests of Southeast Asia, recognized by its distinct grey cap and greenish plumage.",
@@ -441,6 +465,7 @@ namespace AnimalApp.Components.Data
 
                     new Animal
                     {
+                        Id = 25,
                         Name = "Dove, Mariana Fruit",
                         AnimalClass = birdClass,
                         Description = "The Mariana Fruit Dove is a small, vibrant bird native to the Mariana Islands, known for its colorful plumage and frugivorous diet.",
@@ -457,6 +482,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 26,
                         Name = "Eagle, Bald",
                         AnimalClass = birdClass,
                         Description = "The Bald Eagle is a large bird of prey found in North America, known for its white head and tail and powerful hunting abilities.",
@@ -473,6 +499,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 27,
                         Name = "Eagle, Steller's Sea",
                         AnimalClass = birdClass,
                         Description = "Steller's Sea Eagle is a large, powerful bird of prey found primarily along the coastlines of eastern Russia and parts of Japan.",
@@ -489,6 +516,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 28,
                         Name = "Elephant, African",
                         AnimalClass = mammalClass,
                         Description = "The African Elephant is the largest land animal on Earth, known for its large ears and tusks. It inhabits savannas, forests, and deserts across sub-Saharan Africa.",
@@ -505,6 +533,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 29,
                         Name = "Elephant, Asian",
                         AnimalClass = mammalClass,
                         Description = "The Asian Elephant is slightly smaller than its African counterpart, with smaller ears and a more rounded back. It is found across Southeast Asia and parts of South Asia.",
@@ -521,6 +550,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 30,
                         Name = "Emu",
                         AnimalClass = birdClass,
                         Description = "The Emu is a large, flightless bird native to Australia. It is the second-largest living bird by height, after the ostrich, and is known for its fast running ability.",
@@ -537,6 +567,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 31,
                         Name = "Ferret, Black-footed",
                         AnimalClass = mammalClass,
                         Description = "The Black-footed Ferret is a small carnivorous mammal native to the grasslands of North America. It is known for its playful and curious nature.",
@@ -553,6 +584,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 32,
                         Name = "Ferret, Domestic",
                         AnimalClass = mammalClass,
                         Description = "The Domestic Ferret is a small domesticated carnivorous mammal. They are playful and curious, often kept as pets for their energetic and affectionate nature.",
@@ -569,6 +601,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 33,
                         Name = "Flamingo, Chilean",
                         AnimalClass = birdClass,
                         Description = "The Chilean Flamingo is a species of flamingo native to South America. It is recognized by its pink plumage and distinctive long legs, commonly found in wetlands and lagoons.",
@@ -585,6 +618,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 34,
                         Name = "Frog, Poison Dart",
                         AnimalClass = amphibianClass,
                         Description = "Poison Dart Frogs are small, brightly colored amphibians native to Central and South America. They are famous for their potent toxins, which they use as a defense mechanism.",
@@ -601,6 +635,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 35,
                         Name = "Frog, White's Tree",
                         AnimalClass = amphibianClass,
                         Description = "White's Tree Frog is a large, arboreal species of frog found in Australia. Known for their calm demeanor and large size, they are popular in the pet trade.",
@@ -617,6 +652,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 36,
                         Name = "Gila Monster",
                         AnimalClass = reptileClass,
                         Description = "The Gila Monster is one of only two venomous lizards in North America, known for its distinctive pink or orange patterns on its black skin.",
@@ -633,6 +669,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 37,
                         Name = "Giraffe Masai",
                         AnimalClass = mammalClass,
                         Description = "The Masai Giraffe is a subspecies of giraffe native to central and southern Kenya and Tanzania. It is known for its jagged, irregular spots.",
@@ -649,6 +686,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 38,
                         Name = "Goose, Cape Barren",
                         AnimalClass = birdClass,
                         Description = "The Cape Barren Goose is a large, white and gray goose found on the southern coast of Australia, primarily on islands off the coast of South Australia and Tasmania.",
@@ -665,6 +703,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 39,
                         Name = "Gorilla, Western Lowland",
                         AnimalClass = mammalClass,
                         Description = "The Western Lowland Gorilla is a subspecies of gorilla found in the rainforests of central and West Africa. They are the most common gorilla species in zoos around the world.",
@@ -681,6 +720,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 40,
                         Name = "Hedgehog, African Pygmy",
                         AnimalClass = mammalClass,
                         Description = "The African Pygmy Hedgehog is a small, nocturnal mammal native to parts of North Africa. It is known for its spiny coat and its ability to roll into a ball when threatened.",
@@ -697,6 +737,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 41,
                         Name = "Hellbender",
                         AnimalClass = amphibianClass,
                         Description = "The Hellbender is a large, aquatic salamander native to the rivers and streams of North America. It is known for its wrinkled skin and can grow up to 29 inches in length.",
@@ -713,6 +754,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 42,
                         Name = "Hippopotamus, Pygmy",
                         AnimalClass = mammalClass,
                         Description = "The Pygmy Hippopotamus is a smaller relative of the common hippopotamus, native to the forests and swamps of West Africa. It is more solitary and elusive than its larger cousin.",
@@ -727,7 +769,9 @@ namespace AnimalApp.Components.Data
                             "They are nocturnal and spend much of their time foraging for food at night."
                         }
                     },
-                    new Animal {
+                    new Animal 
+                    {
+                        Id = 43,
                         Name = "Hissing Cockroach",
                         AnimalClass = insectClass,
                         Description = "The Hissing Cockroach is a large species of cockroach native to Madagascar, known for its distinctive hissing sound.",
@@ -741,7 +785,9 @@ namespace AnimalApp.Components.Data
                             "They produce a hissing sound by forcing air through tiny openings on their abdomen."
                         }
                     },
-                    new Animal {
+                    new Animal 
+                    {
+                        Id = 44,
                         Name = "Hooded Pitta",
                         AnimalClass = birdClass,
                         Description = "The Hooded Pitta is a vibrant bird species found in Southeast Asia, characterized by its striking plumage and distinctive call.",
@@ -755,7 +801,9 @@ namespace AnimalApp.Components.Data
                             "They are capable of hopping and running swiftly through the forest floor while foraging."
                         }
                     },
-                    new Animal {
+                    new Animal 
+                    {
+                        Id = 45,
                         Name = "Inca Tern",
                         AnimalClass = birdClass,
                         Description = "The Inca Tern is a unique seabird known for its striking appearance, including its white mustache-like feathers and dark plumage.",
@@ -769,7 +817,9 @@ namespace AnimalApp.Components.Data
                             "Their distinct mustache-like feathers are a unique feature among seabirds."
                         }
                     },
-                    new Animal {
+                    new Animal 
+                    {
+                        Id = 46,
                         Name = "Koala",
                         AnimalClass = mammalClass,
                         Description = "The Koala is a marsupial native to Australia, known for its round, fluffy ears and a nose resembling a human thumb.",
@@ -783,7 +833,9 @@ namespace AnimalApp.Components.Data
                             "Their specialized diet consists almost entirely of eucalyptus leaves, which are toxic to most animals."
                         }
                     },
-                    new Animal {
+                    new Animal 
+                    {
+                        Id = 47,
                         Name = "Komodo Dragon",
                         AnimalClass = reptileClass,
                         Description = "The Komodo Dragon is the largest living species of lizard, known for its powerful build and venomous bite.",
@@ -797,7 +849,9 @@ namespace AnimalApp.Components.Data
                             "Their saliva contains deadly bacteria and venom, which helps them subdue their prey."
                         }
                     },
-                    new Animal {
+                    new Animal 
+                    {
+                        Id = 48,
                         Name = "Leithrix, Red-billed",
                         AnimalClass = birdClass,
                         Description = "The Red-billed Leithrix is a small bird native to the Himalayan region, known for its bright red beak and striking plumage.",
@@ -811,7 +865,9 @@ namespace AnimalApp.Components.Data
                             "This species is often seen in mixed-species flocks with other small birds."
                         }
                     },
-                    new Animal {
+                    new Animal
+                    {
+                        Id = 49,
                         Name = "Lemur, Ring-Tailed",
                         AnimalClass = mammalClass,
                         Description = "The Ring-tailed Lemur is a primate found in the wild only on the island of Madagascar, famous for its long, bushy tail with distinctive black and white rings.",
@@ -825,7 +881,9 @@ namespace AnimalApp.Components.Data
                             "They are highly active during the day, engaging in various behaviors like sunbathing and grooming."
                         }
                     },
-                    new Animal {
+                    new Animal 
+                    {
+                        Id = 50,
                         Name = "Lion, African",
                         AnimalClass = mammalClass,
                         Description = "The African Lion is a large wild cat native to sub-Saharan Africa, known for its majestic mane and social pride structure.",
@@ -839,7 +897,9 @@ namespace AnimalApp.Components.Data
                             "The lion's roar can be heard up to 5 miles away, and it helps to communicate with other pride members."
                         }
                     },
-                    new Animal {
+                    new Animal 
+                    {
+                        Id = 51,
                         Name = "Lizard, Philippine Sailfin",
                         AnimalClass = reptileClass,
                         Description = "The Philippine Sailfin Lizard is known for its striking sail-like fin on its back, found in the tropical forests of the Philippines.",
@@ -853,7 +913,9 @@ namespace AnimalApp.Components.Data
                             "It is named for the large sail-like structure along its back, created by elongated spines."
                         }
                     },
-                    new Animal {
+                    new Animal 
+                    {
+                        Id = 52,
                     Name = "Lorikeet, Rainbow",
                     AnimalClass = birdClass,
                     Description = "The Rainbow Lorikeet is a small, colorful parrot species found in Australia and surrounding islands, known for its vibrant plumage.",
@@ -867,7 +929,9 @@ namespace AnimalApp.Components.Data
                         "They are highly social birds, often found in large flocks."
                     }
 },
-                    new Animal {
+                    new Animal 
+                    {
+                        Id = 53,
                         Name = "Lynx, Canada",
                         AnimalClass = mammalClass,
                         Description = "The Canada Lynx is a wild cat native to the forests of Canada and parts of Alaska, distinguished by its tufted ears and large paws.",
@@ -881,7 +945,9 @@ namespace AnimalApp.Components.Data
                             "It relies heavily on snowshoe hares for food and can live in harsh winter environments."
                         }
                     },
-                    new Animal {
+                    new Animal
+                    {
+                        Id = 54,
                         Name = "Macaw, Hyacinth",
                         AnimalClass = birdClass,
                         Description = "The Hyacinth Macaw is the largest species of parrot, native to Brazil and notable for its striking cobalt-blue feathers and large, powerful beak.",
@@ -895,7 +961,9 @@ namespace AnimalApp.Components.Data
                             "They are critically endangered due to habitat loss and illegal trapping for the pet trade."
                         }
                     },
-                    new Animal {
+                    new Animal 
+                    {
+                        Id = 55,
                         Name = "Meerkat",
                         AnimalClass = mammalClass,
                         Description = "The Meerkat is a small mongoose species native to southern Africa, known for its upright posture and social structure.",
@@ -909,7 +977,9 @@ namespace AnimalApp.Components.Data
                             "They are known for standing on their hind legs to keep a lookout for danger while the others forage."
                         }
                     },
-                    new Animal {
+                    new Animal 
+                    {
+                        Id = 56,
                         Name = "Millipedes",
                         AnimalClass = insectClass,
                         Description = "Millipedes are arthropods known for their many legs, typically around 400-4000 depending on the species.",
@@ -923,7 +993,9 @@ namespace AnimalApp.Components.Data
                             "Despite having many legs, they are slow-moving creatures and use their numerous legs to move through leaf litter and soil."
                         }
                     },
-                    new Animal {
+                    new Animal 
+                    {
+                        Id = 57,
                         Name = "Monkey, Colobus",
                         AnimalClass = mammalClass,
                         Description = "Colobus monkeys are a type of Old World monkey found in forests of Central and East Africa, recognized for their long, flowing tails and distinctive black and white fur.",
@@ -937,7 +1009,9 @@ namespace AnimalApp.Components.Data
                             "They are known for their unique method of locomotion, using their long tails and limbs to move through the trees with ease."
                         }
                     },
-                    new Animal {
+                    new Animal
+                    {
+                        Id = 58,
                         Name = "Myna, Bali",
                         AnimalClass = birdClass,
                         Description = "The Bali myna, also known as the Bali starling, is a critically endangered species of bird endemic to Bali, Indonesia, known for its striking white plumage and blue facial skin.",
@@ -953,6 +1027,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 59,
                         Name = "Opossum, Virginia",
                         AnimalClass = mammalClass,
                         Description = "The Virginia opossum is North America's only marsupial, known for its ability to play dead as a defense mechanism.",
@@ -968,6 +1043,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 60,
                         Name = "Orangutan",
                         AnimalClass = mammalClass,
                         Description = "Orangutans are large, tree-dwelling great apes native to the rainforests of Borneo and Sumatra, known for their intelligence and long, powerful arms.",
@@ -983,6 +1059,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 61,
                         Name = "Owl, Barn",
                         AnimalClass = birdClass,
                         Description = "The barn owl is a nocturnal bird of prey known for its heart-shaped face, silent flight, and exceptional hunting skills.",
@@ -998,6 +1075,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 62,
                         Name = "Owl, Great Horned",
                         AnimalClass = birdClass,
                         Description = "The great horned owl is a powerful and adaptable bird of prey known for its distinctive ear tufts and deep hooting call.",
@@ -1013,6 +1091,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 63,
                         Name = "Panda, Red",
                         AnimalClass = mammalClass,
                         Description = "The red panda is a small arboreal mammal native to the Eastern Himalayas and southwestern China, known for its reddish-brown fur and bushy tail.",
@@ -1028,6 +1107,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 64,
                         Name = "Pelican, Dalmatian",
                         AnimalClass = birdClass,
                         Description = "The Dalmatian pelican is one of the largest freshwater birds, known for its massive size, large bill, and distinctive white plumage with a curly nape.",
@@ -1043,6 +1123,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 65,
                         Name = "Penguin, African",
                         AnimalClass = birdClass,
                         Description = "The African penguin, also known as the jackass penguin, is a species of flightless bird native to the southern coast of Africa, recognized for its distinctive black-and-white plumage and braying call.",
@@ -1058,6 +1139,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 66,
                         Name = "Penguin, Little",
                         AnimalClass = birdClass,
                         Description = "The little penguin, also known as the fairy penguin, is the smallest species of penguin, recognized for its petite size and distinctive blue feathers.",
@@ -1073,6 +1155,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 67,
                         Name = "Pigeon, Green-naped Pheasant",
                         AnimalClass = birdClass,
                         Description = "The green-naped pheasant pigeon is a species of pigeon found in the tropical rainforests of New Guinea, known for its striking green nape and large size.",
@@ -1088,6 +1171,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 68,
                         Name = "Pigeon, Nicobar",
                         AnimalClass = birdClass,
                         Description = "The Nicobar pigeon is a large, colorful pigeon found on the Nicobar Islands, known for its striking iridescent plumage and long, flowing tail feathers.",
@@ -1103,6 +1187,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 69,
                         Name = "Pigeon, Pied Imperial",
                         AnimalClass = birdClass,
                         Description = "The Pied Imperial pigeon is a large, striking pigeon with a white body and contrasting black wings, native to the tropical forests of the Philippines.",
@@ -1118,6 +1203,7 @@ namespace AnimalApp.Components.Data
                      },
                     new Animal
                     {
+                        Id = 70,
                         Name = "Pigeon, Victoria Crowned",
                         AnimalClass = birdClass,
                         Description = "The Victoria crowned pigeon is a large, striking pigeon with a distinctive blue crown and elaborate feathers, native to New Guinea.",
@@ -1133,6 +1219,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 71,
                         Name = "Piranha, Black",
                         AnimalClass = fishClass,
                         Description = "The black piranha is a species of piranha known for its powerful bite and distinctive black coloration, native to the rivers of South America.",
@@ -1148,6 +1235,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 72,
                         Name = "Puma",
                         AnimalClass = mammalClass,
                         Description = "The puma, also known as the cougar or mountain lion, is a large cat native to the Americas, known for its agility and stealth.",
@@ -1163,6 +1251,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 73,
                         Name = "Python, Ball",
                         AnimalClass = reptileClass,
                         Description = "The ball python, also known as the royal python, is a non-venomous snake native to West and Central Africa, known for its docile nature and unique ability to curl into a tight ball.",
@@ -1178,6 +1267,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 74,
                         Name = "Python, Reticulated",
                         AnimalClass = reptileClass,
                         Description = "The reticulated python is one of the longest and heaviest snake species in the world, known for its intricate and beautiful pattern of scales.",
@@ -1193,6 +1283,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 75,
                         Name = "Rabbit, Domestic",
                         AnimalClass = mammalClass,
                         Description = "The domestic rabbit is a small mammal commonly kept as a pet, known for its gentle temperament and variety of breeds.",
@@ -1208,6 +1299,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 76,
                         Name = "Rattlesnake, Timber",
                         AnimalClass = reptileClass,
                         Description = "The timber rattlesnake is a venomous pit viper found in the eastern United States, known for its distinctive rattle and warning sound.",
@@ -1223,6 +1315,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 77,
                         Name = "Rhinoceros, Southern White",
                         AnimalClass = mammalClass,
                         Description = "The Southern white rhinoceros is one of the largest species of rhino, known for its broad square lips and large size.",
@@ -1238,6 +1331,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 78,
                         Name = "Sea Lion",
                         AnimalClass = mammalClass,
                         Description = "Sea lions are large marine mammals known for their intelligence and playful nature, often seen in coastal regions.",
@@ -1253,6 +1347,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 79,
                         Name = "Seal, Gray",
                         AnimalClass = mammalClass,
                         Description = "The gray seal is a large pinniped species known for its robust build and distinctive coat pattern.",
@@ -1268,6 +1363,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 80,
                         Name = "Seal, Harbor",
                         AnimalClass = mammalClass,
                         Description = "The harbor seal is a common species of seal found along coastlines in temperate regions. It has a rounded face and a spotted or striped coat.",
@@ -1283,6 +1379,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 81,
                         Name = "Siamang",
                         AnimalClass = mammalClass,
                         Description = "The siamang is a large gibbon native to the rainforests of Southeast Asia. It is known for its vocalizations and large throat sac, which it uses to amplify its calls.",
@@ -1298,6 +1395,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 82,
                         Name = "Snake, Eastern Indigo",
                         AnimalClass = reptileClass,
                         Description = "The Eastern Indigo snake is a large, non-venomous snake native to the southeastern United States. It is known for its shiny, blue-black coloration and its ability to control populations of small mammals and other reptiles.",
@@ -1313,6 +1411,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 83,
                         Name = "Snow Leopard",
                         AnimalClass = mammalClass,
                         Description = "The snow leopard is a large cat native to the mountain ranges of Central and South Asia. It is well adapted to cold, high-altitude environments with its thick fur and long tail.",
@@ -1328,6 +1427,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 84,
                         Name = "Starling, Golden-breasted",
                         AnimalClass = birdClass,
                         Description = "The golden-breasted starling is a vibrant, medium-sized bird native to East Africa, known for its striking golden-yellow plumage and iridescent green wings.",
@@ -1343,6 +1443,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 85,
                         Name = "Stork, Oriental",
                         AnimalClass = birdClass,
                         Description = "The oriental stork is a large, migratory bird native to Eastern Asia, recognized for its white body, black wings, and long red legs and bill.",
@@ -1358,6 +1459,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 86,
                         Name = "Stork, White",
                         AnimalClass = birdClass,
                         Description = "The white stork is a large bird commonly found in Europe, Asia, and parts of Africa, known for its long legs, long neck, and striking white and black plumage.",
@@ -1373,6 +1475,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 87,
                         Name = "Tanager, Blue-gray",
                         AnimalClass = birdClass,
                         Description = "The blue-gray tanager is a small songbird found in Central and South America, known for its striking blue and gray plumage.",
@@ -1388,6 +1491,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 88,
                         Name = "Tapir, Malayan",
                         AnimalClass = mammalClass,
                         Description = "The Malayan tapir is a large herbivorous mammal native to the Malay Peninsula and parts of Thailand and Sumatra. It is known for its distinct black and white coloration.",
@@ -1403,6 +1507,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 89,
                         Name = "Tarantula, New World",
                         AnimalClass = insectClass,
                         Description = "The New World tarantulas are a group of tarantulas found in the Americas, known for their larger size and more docile temperament compared to Old World species. They often have striking color patterns and are popular in the pet trade.",
@@ -1418,6 +1523,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 90,
                         Name = "Tawny Frogmouth",
                         AnimalClass = birdClass,
                         Description = "The Tawny Frogmouth is a nocturnal bird native to Australia, known for its wide, frog-like mouth and excellent camouflage. It often remains motionless during the day, blending into tree branches.",
@@ -1433,6 +1539,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 91,
                         Name = "Tiger, Amur",
                         AnimalClass = mammalClass,
                         Description = "The Amur tiger, also known as the Siberian tiger, is the largest wildcat in the world, found primarily in the Russian Far East. It is critically endangered, with only a small number of individuals left in the wild.",
@@ -1448,6 +1555,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 92,
                         Name = "Tiger, Sumatran",
                         AnimalClass = mammalClass,
                         Description = "The Sumatran tiger is a critically endangered subspecies of tiger found exclusively on the Indonesian island of Sumatra. It is smaller than other tiger subspecies, but it is still a powerful predator.",
@@ -1463,6 +1571,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 93,
                         Name = "Tortoise, Aldabra",
                         AnimalClass = reptileClass,
                         Description = "The Aldabra giant tortoise is one of the largest tortoises in the world, native to the Aldabra Atoll in the Seychelles. They are long-lived creatures and can live over 100 years.",
@@ -1478,6 +1587,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 94,
                         Name = "Tortoise, Greek",
                         AnimalClass = reptileClass,
                         Description = "The Greek tortoise is a small, terrestrial tortoise native to parts of southern Europe and the Middle East. It is characterized by its high-domed shell and distinct patterns.",
@@ -1493,6 +1603,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 95,
                         Name = "Tortoise, Star",
                         AnimalClass = reptileClass,
                         Description = "The star tortoise is a large species of tortoise found in India and Sri Lanka, known for its distinctive star-like patterns on its domed shell.",
@@ -1508,6 +1619,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 96,
                         Name = "Toucan, Toco",
                         AnimalClass = birdClass,
                         Description = "The toco toucan is a large species of toucan native to South America, recognized for its large, colorful bill and striking black and white plumage.",
@@ -1523,6 +1635,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 97,
                         Name = "Turtle, Razor-Backed Musk",
                         AnimalClass = reptileClass,
                         Description = "The razor-backed musk turtle is a small, freshwater turtle found in North America, known for its distinctively pointed, spiked carapace.",
@@ -1538,6 +1651,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 98,
                         Name = "Vulture, Ruppell's Griffon",
                         AnimalClass = birdClass,
                         Description = "Rüppell's griffon vulture is a large bird of prey found in parts of Africa, known for its impressive wingspan and scavenging habits.",
@@ -1553,6 +1667,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 99,
                         Name = "Vulture, Turkey",
                         AnimalClass = birdClass,
                         Description = "The turkey vulture is a large bird of prey native to the Americas, recognized by its red head and dark plumage. It is a scavenger, feeding primarily on carrion.",
@@ -1568,6 +1683,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 100,
                         Name = "Vulture, Turkey",
                         AnimalClass = birdClass,
                         Description = "The turkey vulture is a large bird of prey native to the Americas, recognized by its red head and dark plumage. It is a scavenger, feeding primarily on carrion.",
@@ -1583,6 +1699,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 101,
                         Name = "Warthog",
                         AnimalClass = mammalClass,
                         Description = "The warthog is a wild member of the pig family native to sub-Saharan Africa. It is known for its tusks and distinctive facial warts.",
@@ -1598,6 +1715,7 @@ namespace AnimalApp.Components.Data
                     },
                     new Animal
                     {
+                        Id = 102,
                         Name = "Zebra, Hartmann's Mountain",
                         AnimalClass = mammalClass,
                         Description = "Hartmann's mountain zebra is a subspecies of zebra found in the mountainous regions of Namibia and Angola, characterized by narrow stripes and a more rugged body.",
@@ -1612,6 +1730,7 @@ namespace AnimalApp.Components.Data
                         }
                     }
                 });
+                context.SaveChanges(); // Persist changes to database
             }
         }
 

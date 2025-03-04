@@ -1,62 +1,33 @@
-﻿@page "/animal"
+﻿@page "/animals"
 @using AnimalApp.Components.Models
 @using AnimalApp.Components.Services
 @inject AnimalService AnimalService
 
-
-<h3>Animal List</h3>
+<h3>Animals in Database</h3>
 
 @if (animals == null)
 {
-	<p><em>Loading...</em></p>
+    <p>Loading...</p>
+}
+else if (animals.Count == 0)
+{
+    <p>No animals found.</p>
 }
 else
 {
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Name</th>
-				<th>Animal Class</th>
-				<th>Description</th>
-				<th>Diet</th>
-				<th>Colors</th>
-				<th>Weight (in Kg)</th>
-				<th>Native Location</th>
-				<th>Facts</th>
-			</tr>
-		</thead>
-		<tbody>
-			@foreach (var animal in animals)
-			{
-				<tr>
-					<td>@animal.Name</td>
-					<td>@animal.AnimalClass</td>
-					<td>@animal.Description</td>
-					<td>@animal.Diet</td>
-					<td>@foreach (var color in animal.Colors)
-						{
-							<td>@color, </td>
-						}
-					</td>
-					<td>@animal.Weight</td>
-					<td>@animal.NativeLocation</td>
-					<td>@foreach (var fact in animal.Facts)
-						{
-							<td>@fact.</td>
-						}
-					</td>
-				</tr>
-			}
-		</tbody>
-	</table>
+    <ul>
+        @foreach (var animal in animals)
+        {
+            <li>@animal.Name - @animal.AnimalClass</li>
+        }
+    </ul>
 }
 
 @code {
-	private Animal[]? animals;
+    private List<Animal> animals = new();
 
-	protected override async Task OnInitializedAsync()
-	{
-		animals = await AnimalService.GetAnimalsAsync(AnimalDataSeeder
-);
-	}
+    protected override async Task OnInitializedAsync()
+    {
+        animals = await AnimalService.GetAnimalsAsync();
+    }
 }

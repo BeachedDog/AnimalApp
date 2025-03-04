@@ -24,7 +24,11 @@
     </div>
 
     <script src="_framework/blazor.webview.js" autostart="false"></script>
-
+    <script>
+        window.onerror = function (message, source, lineno, colno, error) {
+            console.log("Blazor Error:", message, error);
+        };
+    </script>
 </body>
 
 </html>

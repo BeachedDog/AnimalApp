@@ -1,7 +1,9 @@
 ﻿using AnimalApp.Components.Data;
+using AnimalApp.Components.Repositories;
 using AnimalApp.Components.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using System.Diagnostics; // Required for Debug.WriteLine()
 
 namespace AnimalApp
 {
@@ -17,10 +19,16 @@ namespace AnimalApp
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 });
             var dbPath = Path.Combine(FileSystem.AppDataDirectory, "AnimalApp.db");
-            
+
+            Debug.WriteLine($"Database Path: {dbPath}");
+
+
             builder.Services.AddMauiBlazorWebView();
             builder.Services.AddDbContext<AnimalAppContext>(options =>
             options.UseSqlite($"Filename={dbPath}"));
+            
+
+
             using (var scope = builder.Services.BuildServiceProvider().CreateScope())
             {
                 var context = scope.ServiceProvider.GetRequiredService<AnimalAppContext>();
@@ -33,16 +41,11 @@ namespace AnimalApp
 #endif
             builder.Services.AddScoped<WeatherForecastService>();
             builder.Services.AddScoped<AnimalService>();
+            builder.Services.AddScoped<AnimalRepository>();
             return builder.Build();
         }
     }
 }
 
-//computer crashed. need to readd in Dbcontext and add it to scope, create Irepository,
-//correctly seed databases for class and for animals. some data recovered below. 
-
-
-//I have made a test database with 5 animals and got it to display to a component. #2 Next I would like to create a real database,
-//have it interact with the repository, and send data to the front end. 
-//#3 Add business logic and refactor front end,
-//#4 expand off the basic to add fun functionality (animal look up, fact games, memory games, possibly a map of the zoo)
+//created CRUD and animal repository. have things connected so that the database is created if it doesn't exist on the machine,
+//and displays simple data to the animals page. next need to add buttons and another page to display eveyrthing for a selected animal.

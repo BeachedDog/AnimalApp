@@ -8,6 +8,7 @@ namespace AnimalApp.Components.Models
 {
     public class Animal
     {
+        public int Id { get; set; }
         public string? Name { get; set; }
         public AnimalClass? AnimalClass { get; set; }
         public int AnimalClassId { get; set; }

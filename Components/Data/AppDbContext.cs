@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,8 +13,6 @@ namespace AnimalApp.Components.Data
     {
         public DbSet<Animal> Animals { get; set; }
         public DbSet<AnimalClass> AnimalClasses { get; set; }
-
-
         public AnimalAppContext(DbContextOptions<AnimalAppContext> options) : base(options) { }
     }
 }
