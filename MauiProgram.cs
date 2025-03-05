@@ -4,6 +4,7 @@ using AnimalApp.Components.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics; // Required for Debug.WriteLine()
+using MudBlazor.Services; 
 
 namespace AnimalApp
 {
@@ -24,6 +25,7 @@ namespace AnimalApp
 
 
             builder.Services.AddMauiBlazorWebView();
+            builder.Services.AddMudServices();
             builder.Services.AddDbContext<AnimalAppContext>(options =>
             options.UseSqlite($"Filename={dbPath}"));
             

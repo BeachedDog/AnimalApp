@@ -18,7 +18,16 @@ else
     <ul>
         @foreach (var animal in animals)
         {
-            <li>@animal.Name - @animal.AnimalClass</li>
+            <li>@animal.Name </li>
+            <ul>
+                @if (animal.Colors !=null)
+                {
+                @foreach (var color in animal.Colors)
+                {
+                    <li>@color</li>
+                }
+                }
+            </ul>
         }
     </ul>
 }
